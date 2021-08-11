@@ -103,7 +103,7 @@ export const MEALS = [
 
   new Meal(
     "m4",
-    ["c4"],
+    ["c4", "c2", "c8"],
     "Chicken Adobo",
     "affordable",
     "simple",

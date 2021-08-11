@@ -8,14 +8,14 @@ import {
   Platform,
 } from "react-native";
 
-export default CategoryGridTile = (props) => {
+export default CategoryListItem = (props) => {
   let TouchableCmp = TouchableOpacity;
 
   if (Platform.OS === "android" && Platform.Version >= 21) {
     TouchableCmp = TouchableNativeFeedback;
   }
   return (
-    <View style={styles.gridItem}>
+    <View style={styles.item}>
       <TouchableCmp style={{ flex: 1 }} onPress={props.onSelect}>
         <View style={{ ...styles.container, backgroundColor: props.color }}>
           <Text style={styles.title} numberOfLines={2}>
@@ -28,7 +28,7 @@ export default CategoryGridTile = (props) => {
 };
 
 const styles = StyleSheet.create({
-  gridItem: {
+  item: {
     flex: 1,
     margin: 15,
     height: 150,

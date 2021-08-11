@@ -2,19 +2,19 @@ import React from "react";
 import { StyleSheet, FlatList } from "react-native";
 
 import { CATEGORIES } from "../data/dummy-data";
-import CategoryGridTile from "../components/CategoryGridTile";
+import CategoryListItem from "../components/CategoryListItem";
 
 export default CategoriesScreen = (props) => {
   const navigation = props.navigation;
 
   const listItem = (itemData) => {
     return (
-      <CategoryGridTile
+      <CategoryListItem
         title={itemData.item.title}
         color={itemData.item.color}
         onSelect={() =>
           navigation.navigate({
-            routeName: "CategoryMeals",
+            routeName: "Meals",
             params: {
               categoryId: itemData.item.id,
             },
