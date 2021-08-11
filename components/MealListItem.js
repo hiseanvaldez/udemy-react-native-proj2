@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   TouchableNativeFeedback,
   ImageBackground,
+  Platform,
 } from "react-native";
 
 export default MealListItem = (props) => {
