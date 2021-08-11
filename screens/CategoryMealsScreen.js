@@ -1,20 +1,27 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
-import { CATEGORIES } from "../data/dummy-data";
+import { FlatList } from "react-native-gesture-handler";
+import { CATEGORIES, MEALS } from "../data/dummy-data";
+
+const listItem = (itemData) => {
+  return (
+    <View>
+      <Text>{itemData.item.title}</Text>
+    </View>
+  );
+};
 
 export default CategoryMealsScreen = (props) => {
   const navigation = props.navigation;
   const categoryId = navigation.getParam("categoryId");
-  const currentCategory = CATEGORIES.find((cat) => cat.id === categoryId);
+
+  const matchingMeals = MEALS.filter(
+    (meal) => meal.categoryIds.indexOf(categoryId) >= 0
+  );
 
   return (
     <View style={styles.screen}>
-      <Text>The Category Meals Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate("MealDetails")}
-      />
-      <Button title={"Go Back"} onPress={() => navigation.goBack()} />
+      <FlatList data={matchingMeals} renderItem={listItem} />
     </View>
   );
 };
