@@ -8,6 +8,7 @@ import {
   ImageBackground,
   Platform,
 } from "react-native";
+import DefaultText from "./DefaultText";
 
 export default MealListItem = (props) => {
   let TouchableCmp = TouchableOpacity;
@@ -33,9 +34,9 @@ export default MealListItem = (props) => {
             </ImageBackground>
           </View>
           <View style={{ ...styles.mealRow, ...styles.mealDetails }}>
-            <Text>{props.duration} minutes</Text>
-            <Text>{props.complexity.toUpperCase()}</Text>
-            <Text>{props.affordability.toUpperCase()}</Text>
+            <DefaultText>{props.duration} minutes</DefaultText>
+            <DefaultText>{props.complexity.toUpperCase()}</DefaultText>
+            <DefaultText>{props.affordability.toUpperCase()}</DefaultText>
           </View>
         </View>
       </TouchableCmp>
