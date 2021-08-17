@@ -2,8 +2,8 @@ import React from "react";
 import { StyleSheet, FlatList } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
-import CustomHeaderButton from "../components/HeaderButton";
 import { CATEGORIES } from "../data/dummy-data";
+import CustomHeaderButton from "../components/HeaderButton";
 import CategoryListItem from "../components/CategoryListItem";
 
 export default CategoriesScreen = (props) => {

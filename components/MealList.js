@@ -1,5 +1,6 @@
 import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
+import { useDispatch } from "react-redux";
 import MealListItem from "./MealListItem";
 
 export default MealList = (props) => {
@@ -16,6 +17,7 @@ export default MealList = (props) => {
             routeName: "MealDetails",
             params: {
               mealId: itemData.item.id,
+              mealTitle: itemData.item.title,
             },
           });
         }}
