@@ -1,17 +1,18 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  ScrollView,
-  Image,
-} from "react-native";
+import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import DefaultText from "../components/DefaultText";
 
 import CustomHeaderButton from "../components/HeaderButton";
 import { MEALS } from "../data/dummy-data";
+
+const ListItem = (props) => {
+  return (
+    <View style={styles.listItem}>
+      <DefaultText>{props.children}</DefaultText>
+    </View>
+  );
+};
 
 export default MealDetailsScreen = (props) => {
   const navigation = props.navigation;
@@ -28,9 +29,15 @@ export default MealDetailsScreen = (props) => {
         <DefaultText>{selectedMeal.affordability.toUpperCase()}</DefaultText>
       </View>
       <Text style={styles.title}>Ingredients</Text>
-      <Text>List of Ingredients</Text>
+      {selectedMeal.ingredients.map((ingredient) => (
+        <ListItem key={ingredient}>{ingredient}</ListItem>
+      ))}
+
       <Text style={styles.title}>Steps</Text>
-      <Text>List of Steps</Text>
+
+      {selectedMeal.steps.map((step) => (
+        <ListItem key={step}>{step}</ListItem>
+      ))}
     </ScrollView>
   );
 };
@@ -65,10 +72,21 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 200,
   },
-  title: {},
+  title: {
+    fontFamily: "open-sans-bold",
+    fontSize: 22,
+    textAlign: "center",
+  },
   details: {
     flexDirection: "row",
     padding: 15,
     justifyContent: "space-around",
+  },
+  listItem: {
+    marginVertical: 10,
+    marginHorizontal: 20,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    padding: 10,
   },
 });
