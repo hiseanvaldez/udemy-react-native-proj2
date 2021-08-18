@@ -7,7 +7,7 @@ import CustomHeaderButton from "../components/HeaderButton";
 import CategoryListItem from "../components/CategoryListItem";
 
 export default CategoriesScreen = (props) => {
-  const navigation = props.navigation;
+  const { navigation } = props;
 
   const listItem = (itemData) => {
     return (

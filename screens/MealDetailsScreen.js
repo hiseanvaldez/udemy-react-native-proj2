@@ -16,7 +16,8 @@ const ListItem = (props) => {
 };
 
 export default MealDetailsScreen = (props) => {
-  const navigation = props.navigation;
+  const dispatch = useDispatch();
+  const { navigation } = props;
   const mealId = navigation.getParam("mealId");
 
   const availableMeals = useSelector((state) => state.meals.meals);
@@ -24,7 +25,6 @@ export default MealDetailsScreen = (props) => {
     state.meals.favoriteMeals.some((meal) => meal.id === mealId)
   );
   const selectedMeal = availableMeals.find((meal) => meal.id === mealId);
-  const dispatch = useDispatch();
 
   const toggleFavoriteHandler = useCallback(() => {
     dispatch(toggleFavorite(mealId));
